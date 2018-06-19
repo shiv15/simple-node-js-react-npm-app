@@ -7,9 +7,13 @@ pipeline {
     }
     stages {
         stage('Build') { 
-            withDockerContainer(args: "-u root", image: "${JOB_NAME}") {
+    steps {
+        withDockerContainer(args: "-u root", image: "${JOB_NAME}") {
                  sh "npm install"
         }
+             
+           }
+            
            
         }
     }
